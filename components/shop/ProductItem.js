@@ -8,7 +8,7 @@ import {
   TouchableNativeFeedback,
   Platform,
 } from "react-native";
-import Card from "../../components/ui/Card";
+import Card from "../UI/Card";
 
 const ProductItem = (props) => {
   let TouchableCmp = TouchableOpacity;
