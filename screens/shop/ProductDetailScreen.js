@@ -18,12 +18,6 @@ const ProductDetailScreen = (props) => {
   );
   const dispatch = useDispatch();
 
-  ProductDetailScreen.navigationOptions = (navData) => {
-    return {
-      headerTitle: navData.navigation.getParam("productTitle"),
-    };
-  };
-
   return (
     <ScrollView>
       <Image style={styles.image} source={{ uri: selectedProduct.imageUrl }} />
@@ -40,6 +34,12 @@ const ProductDetailScreen = (props) => {
       <Text style={styles.description}>{selectedProduct.description}</Text>
     </ScrollView>
   );
+};
+
+ProductDetailScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: navData.navigation.getParam("productTitle"),
+  };
 };
 
 const styles = StyleSheet.create({
