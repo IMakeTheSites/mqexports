@@ -8,6 +8,7 @@ import {
   TouchableNativeFeedback,
   Platform,
 } from "react-native";
+
 import Card from "../UI/Card";
 
 const ProductItem = (props) => {
@@ -16,6 +17,7 @@ const ProductItem = (props) => {
   if (Platform.OS === "android" && Platform.Version >= 21) {
     TouchableCmp = TouchableNativeFeedback;
   }
+
   return (
     <Card style={styles.product}>
       <View style={styles.touchable}>
@@ -42,8 +44,8 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   touchable: {
-    overflow: "hidden",
     borderRadius: 10,
+    overflow: "hidden",
   },
   imageContainer: {
     width: "100%",
@@ -55,6 +57,11 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
+  },
+  details: {
+    alignItems: "center",
+    height: "17%",
+    padding: 10,
   },
   title: {
     fontFamily: "open-sans-bold",
@@ -72,11 +79,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: "23%",
     paddingHorizontal: 20,
-  },
-  details: {
-    alignItems: "center",
-    height: "15%",
-    padding: 10,
   },
 });
 
