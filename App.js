@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import productsReducer from "./store/reducers/products";
 import ordersReducer from "./store/reducers/orders";
 import authReducer from "./store/reducers/auth";
-import ShopNavigator from "./navigation/ShopNavigator";
+import NavigationContainer from "./navigation/NavigationContainer";
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import cartReducer from "./store/reducers/cart";
@@ -41,7 +41,7 @@ export default function App() {
   }
   return (
     <Provider store={store}>
-      <ShopNavigator />
+      <NavigationContainer />
     </Provider>
   );
 }
