@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import {
   View,
   Text,
   FlatList,
-  Platform,
   Button,
+  Platform,
   ActivityIndicator,
   StyleSheet,
 } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+
 import HeaderButton from "../../components/UI/HeaderButton";
 import ProductItem from "../../components/shop/ProductItem";
 import * as cartActions from "../../store/actions/cart";
@@ -83,7 +84,7 @@ const ProductsOverviewScreen = (props) => {
   if (!isLoading && products.length === 0) {
     return (
       <View style={styles.centered}>
-        <Text>No products fround. Maybe start adding some!</Text>
+        <Text>No products found. Maybe start adding some!</Text>
       </View>
     );
   }
@@ -93,6 +94,7 @@ const ProductsOverviewScreen = (props) => {
       onRefresh={loadProducts}
       refreshing={isRefreshing}
       data={products}
+      keyExtractor={(item) => item.id}
       renderItem={(itemData) => (
         <ProductItem
           image={itemData.item.imageUrl}
@@ -125,7 +127,7 @@ const ProductsOverviewScreen = (props) => {
 ProductsOverviewScreen.navigationOptions = (navData) => {
   return {
     headerTitle: "All Products",
-    headerLeft: () => (
+    headerLeft: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Menu"
@@ -136,7 +138,7 @@ ProductsOverviewScreen.navigationOptions = (navData) => {
         />
       </HeaderButtons>
     ),
-    headerRight: () => (
+    headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Cart"
@@ -151,11 +153,7 @@ ProductsOverviewScreen.navigationOptions = (navData) => {
 };
 
 const styles = StyleSheet.create({
-  centered: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  centered: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
 
 export default ProductsOverviewScreen;
