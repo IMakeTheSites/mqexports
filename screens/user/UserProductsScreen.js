@@ -71,7 +71,7 @@ const UserProductsScreen = (props) => {
 export const screenOptionsUser = (navData) => {
   return {
     headerTitle: "Your Products",
-    headerLeft: (
+    headerLeft: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Menu"
@@ -82,7 +82,7 @@ export const screenOptionsUser = (navData) => {
         />
       </HeaderButtons>
     ),
-    headerRight: (
+    headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Add"
