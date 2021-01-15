@@ -9,6 +9,13 @@ import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import cartReducer from "./store/reducers/cart";
 import ReduxThunk from "redux-thunk";
+import * as Notifications from "expo-notifications";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => {
+    return { shouldShowAlert: true };
+  },
+});
 
 const rootReducer = combineReducers({
   products: productsReducer,
